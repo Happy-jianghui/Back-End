@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        app.get('./index.html', (req, res) => {
+            // 1. 需要渲染的数据
+            const user = {name: 'sz', age: 20}
+            // 2. 服务器端通过字符串的拼接，动态生成 HTML 内容
+            const html = `<h1>姓名：${user.name}，年龄：${user.age}</h1>`
+            // 3.把生成好的页面内容给客户端。因此，客户端拿到的是带有真实数据的 HTML 页面
+            res.send(html)
+        })
+    </script>
+</body>
+</html>
